@@ -1,7 +1,7 @@
 apiVersion: netcloud.uom.gr/v1
 kind: VObject
 metadata:
-  name: example-vobject
+  name: nephele-vobject
 spec:
   edgelayer:
     verticalscaling:
@@ -19,9 +19,9 @@ spec:
     protocols:
     - MQTT
   gateway:
-    name: gateway-1
-    tsnserverip: "10.0.0.1"
-    tsnserverport: "5000"
+    name: gateway
+    tsnserverip: "192.168.0.1"
+    tsnserverport: "8080"
   tsn:
     type: taprio
     trafficClass:
@@ -35,8 +35,6 @@ spec:
         interval: 800
   northbound:
     Orchestrator:
-      url: "https://orchestrator.example.com"
-    cVo:
-      url: "https://cvo.example.com"
+      url: "https://orchestrator.nephele.com"
     Application:
-      url: "https://app.example.com"
+      url: "https://app.com"
