@@ -101,6 +101,37 @@ spec:
                       type: string
                       default: ""
                   additionalProperties: false
+                tsn: 
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      default: "taprio"
+                    trafficClass:
+                      type: array
+                      items: 
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          dscp:
+                             type: string
+                          gcl:
+                            type: object
+                            properties:
+                              interval:
+                                type: integer
+                      minItems: 2
+                      maxItems: 8
+                      default:
+                        - id: 0
+                          dscp: "0x00"
+                          gcl:
+                            interval: 200
+                        - id: 1
+                          dscp: 0x40"
+                          gcl:
+                            interval: 800
                 northbound:
                   type: object
                   properties:
