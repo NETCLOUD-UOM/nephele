@@ -1,2 +1,2 @@
 # nephele
-Public repository for Horizon Europe Project - Nephele
+Repository for Horizon Europe Project - Nephele
