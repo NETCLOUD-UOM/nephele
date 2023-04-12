@@ -1,17 +1,17 @@
 apiVersion: netcloud.uom.gr/v1
 kind: VObject
 metadata:
-  name: my-vobject
+  name: example-vobject
 spec:
   edgelayer:
     verticalscaling:
-      cpuRequest: "200m"
-      cpuLimit: "200m"
-      memoryRequest: "512Mi"
-      memoryLimit: "512Mi"
+      cpuRequest: "100m"
+      cpuLimit: "100m"
+      memoryRequest: "256Mi"
+      memoryLimit: "256Mi"
     horizontalscaling:
       minReplicas: 1
-      maxReplicas: 5
+      maxReplicas: 3
   southboundControlPlane:
     protocols:
     - OpenFlow
@@ -19,13 +19,24 @@ spec:
     protocols:
     - MQTT
   gateway:
-    name: my-gateway
-    tsnserverip: "192.168.1.100"
+    name: gateway-1
+    tsnserverip: "10.0.0.1"
     tsnserverport: "5000"
+  tsn:
+    type: taprio
+    trafficClass:
+    - id: 0
+      dscp: "0x00"
+      gcl:
+        interval: 200
+    - id: 1
+      dscp: "0x40"
+      gcl:
+        interval: 800
   northbound:
     Orchestrator:
-      url: "http://orchestrator.mydomain.com"
+      url: "https://orchestrator.example.com"
     cVo:
-      url: "http://cvo.mydomain.com"
+      url: "https://cvo.example.com"
     Application:
-      url: "http://app.mydomain.com"
+      url: "https://app.example.com"
