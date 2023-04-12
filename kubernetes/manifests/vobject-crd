@@ -18,9 +18,6 @@ spec:
         - name: NorthboundOrchestratorURL
           type: string
           jsonPath: .spec.northbound.Orchestrator.url
-        - name: NorthboundcVoURL
-          type: string
-          jsonPath: .spec.northbound.cVo.url
         - name: NorthboundApplicationURL
           type: string
           jsonPath: .spec.northbound.Application.url
@@ -136,13 +133,6 @@ spec:
                   type: object
                   properties:
                     Orchestrator:
-                      type: object
-                      properties:
-                        url:
-                          type: string
-                          default: ""
-                      additionalProperties: false
-                    cVo:
                       type: object
                       properties:
                         url:
